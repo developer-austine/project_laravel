@@ -31,7 +31,7 @@ class Job {
         $job = Arr::first(static::all(), fn($job) => $job['id'] == $id);
 
         if(! $job) {
-            abort(404);
+            abort(404); //this helper function allows us to create a whole new page without having to write a single line of code and it will display the error page. 
         }
 
         return $job;
