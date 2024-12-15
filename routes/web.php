@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function (){
-    $jobs = Job::with('employer')->get(); //eager loading || this solves the n+1 problem in terms of sql statement execution
+    $jobs = Job::with('employer')->cursorPaginate(3); //eager loading || this solves the n+1 problem in terms of sql statement execution
 
     return view('jobs', [
         'jobs' => $jobs
